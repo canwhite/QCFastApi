@@ -1,4 +1,4 @@
-1.安装python：我用的时miniconda同意管理
+1.安装python：我用的时miniconda统一管理
 2.安装虚拟环境：pip3 install virtualenv
 3.创建虚拟环境：virtualenv fast
 4.启动虚拟环境：source fast/bin/activate (退出时deactivate)
