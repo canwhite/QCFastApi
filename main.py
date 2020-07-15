@@ -1,6 +1,7 @@
 from typing import Optional 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from routing_management import FastApiRouter
 
 app = FastAPI()
 
@@ -11,9 +12,15 @@ class Item(BaseModel):
     is_offer:Optional[bool] = None
 
 
-@app.get("/")
-def read_root():
-    return {"Hello":"World"}
+# @app.get("/")
+# def read_root():
+#     return {"Hello":"World"}
+
+
+#通过路由管理类来统一管理路由，来实现功能区分
+fastApiRouter = FastApiRouter()
+app.include_router(fastApiRouter.get_base_router())
+
 
 
 @app.get("/items/{item_id}")
